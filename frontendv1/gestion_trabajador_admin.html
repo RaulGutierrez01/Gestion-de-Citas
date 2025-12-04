@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Empleados - Salón de Belleza</title>
+    <script type="module" src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Courgette&family=Courier+Prime&family=Great+Vibes&family=Instrument+Serif&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/estilo_header_admin.css">
+    <link rel="stylesheet" href="estilos/estilo_gestion_trabajador.css">
+    <script src="funciones/header_admin_fun.js"></script>
+    <script src="funciones/gestion_trabajador_fun.js"></script>
+    <script src="funciones/cerrar_sesion_fun.js"></script>
+</head>
+<header>
+    <div class="header-left">
+        <div class="menu_hamburguesa">☰</div>
+        <div class="logo">
+            <img src="imagenes/logo_t.png" alt="Logo" class="logo-img"> 
+            Gestión de Trabajadores
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="menu-opciones">
+            <nav>
+                <ul>
+                    <li><a data-url="panel_administrador.html">Ventana Principal</a></li>
+                    <li><a id="cerrarSesion">Cerrar Sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<body>
+    <div class="perfil-administrador">
+        <img src="imagenes/modelo-principal.jpg" alt="Foto del Administrador" class="perfil-img">
+        <span class="nombre-administrador">Administrador</span>
+    </div>
+    <div class="contenedor">
+
+        <!-- Tarjeta de Contenido Principal -->
+        <div class="tarjeta">
+            <div class="barra-herramientas">
+                
+                <!-- Botón para Agregar Nuevo Empleado -->
+                <button class="btn-primario btn-anadir">
+                    <i data-lucide="user-plus" class="lucide-icon" style="width: 20px; height: 20px;"></i>
+                    <span>Añadir Trabajador</span>
+                </button>
+                <button class="btn-primario btn-guardar">
+                    <i data-lucide="save" class="lucide-icon" style="width: 20px; height: 20px;"></i>
+                    <span>Guardar Cambios</span>
+                </button>
+                <!-- Campo de Búsqueda -->
+                <div class="contenedor-busqueda">
+                    <input type="text" placeholder="Buscar por Nombre" class="entrada-busqueda">
+                    <i data-lucide="search" class="icono-busqueda"></i>
+                </div>
+                <button class="btn-primario btn-buscar">
+                    <span>Buscar</span>
+                </button>
+            </div>
+
+            <!-- Tabla de Empleados -->
+            <div class="contenedor-tabla">
+                <table class="tabla-empleados">
+                    <thead>
+                        <tr>
+                            <th class="columna-id">ID</th> 
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Teléfono</th>
+                            <th>Servicios Ofrecidos</th> 
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Inicializar los íconos de Lucide
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>

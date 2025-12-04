@@ -1,0 +1,121 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salón de Belleza - Agenda</title>
+    <link rel="stylesheet" href="estilos/estilo_agenda_general.css">
+    <link rel="stylesheet" href="estilos/estilo_header_admin.css">
+    <script src="funciones/agenda_general_admin_fun.js"></script>
+    <script src="funciones/header_admin_fun.js"></script>
+    <script src="funciones/cerrar_sesion_fun.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Courier+Prime&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<header>
+    <div class="menu_hamburguesa">☰</div>
+    <div class="logo">
+        <img src="imagenes/logo_t.png" alt="Logo" class="logo-img">
+        Citas
+    </div>
+    <div class="menu-opciones">
+        <nav>
+            <ul>
+                <li><a data-url="panel_administrador.html">Ventana Principal</a></li>
+                <li><a id="cerrarSesion">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="perfil-administrador">
+    <img src="imagenes/modelo-principal.jpg" alt="Foto del Administrador" class="perfil-img">
+    <span class="nombre-administrador">Administrador</span>
+</div>
+<body>
+    <main class="agenda-container">
+        <section class="fecha-calendario">
+            <div class="info-fecha">
+                <span class="dia-grande">24</span>
+                <div class="texto-fecha">
+                    <span class="dia-semana">Miércoles</span>
+                    <span class="mes-anio">Marzo</span>
+                </div>
+            </div>
+            
+            <button class="boton-calendario">2025</button>
+            
+            <div class="calendario-popup" style="display: none;">
+                <div class="calendario-header">
+                    <button class="cal-nav prev-mes">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    
+                    <div class="cal-selectores">
+                        
+                        <div class="mes-dropdown-wrapper">
+                            <div class="mes-select-btn cal-select" data-current-val="">Noviembre</div> 
+                            <ul class="mes-select-menu">
+                                </ul>
+                        </div>
+
+                        <div class="anio-dropdown-wrapper">
+                            <div class="anio-select-btn cal-select" data-current-val="">2025</div>
+                            <ul class="anio-select-menu">
+                                </ul>
+                        </div>
+                    </div>
+                    <button class="cal-nav next-mes">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+                
+                <div class="calendario-grid-header"></div>
+                <div class="calendario-grid-dias"></div>
+            </div>
+
+            <div class="dias-semana-tira">
+                <div class="dia" data-fecha="2025-03-21">
+                    <span class="letra">D</span>
+                    <span class="numero">21</span>
+                </div>
+                <div class="dia" data-fecha="2025-03-22">
+                    <span class="letra">L</span>
+                    <span class="numero">22</span>
+                </div>
+                <div class="dia" data-fecha="2025-03-23">
+                    <span class="letra">M</span>
+                    <span class="numero">23</span>
+                </div>
+                <div class="dia dia-activo" data-fecha="2025-03-24">
+                    <span class="letra">W</span>
+                    <span class="numero">24</span>
+                </div>
+                <div class="dia" data-fecha="2025-03-25">
+                    <span class="letra">J</span>
+                    <span class="numero">25</span>
+                </div>
+                <div class="dia" data-fecha="2025-03-26">
+                    <span class="letra">V</span>
+                    <span class="numero">26</span>
+                </div>
+                <div class="dia" data-fecha="2025-03-27">
+                    <span class="letra">S</span>
+                    <span class="numero">27</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="agenda-citas">
+            <table class="tabla-agenda">
+                <thead>
+                    <tr>
+                        <th class="columna-hora-header">Hora</th>
+                        <th class="columna-servicio-header">Servicio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+</body>
+</html>

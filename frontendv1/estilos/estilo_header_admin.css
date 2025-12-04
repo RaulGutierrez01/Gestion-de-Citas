@@ -1,0 +1,181 @@
+/* Estilos Globales del Header */
+header {
+    background-color: #f96c7a;
+    height: 60px;
+    padding: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    user-select: none;
+}
+
+/* Ocultar el icono de hamburguesa por defecto (para escritorio) */
+header .menu_hamburguesa {
+    display: none;
+    position: absolute;
+}
+
+/* Estilos del Logo */
+header .logo {
+    font-weight: 500;
+    color: #333333;
+    display: flex;
+    align-items: center;
+}
+
+header .logo-img {
+    height: 5vh;
+    margin-right: 8px;
+    display: flex; 
+}
+
+/* Estilos de la navegación de escritorio (menu-opciones) */
+header .menu-opciones { 
+    display: flex; 
+    align-items: center; 
+    gap: 5vh;
+    border-radius: 10%; 
+} 
+
+header nav ul { 
+    list-style-type: none; 
+    display: flex; 
+    gap: 5vh; 
+    justify-content: flex-end; 
+    padding: 0; 
+    margin: 0; 
+} 
+
+header nav a { 
+    text-decoration: none; 
+    color: #333333;
+    position: relative; 
+    font-family: sans-serif; 
+    padding: 0.5vh 0vh; 
+    transition: color 0.3s ease; 
+} 
+
+/* Animación subrayado de escritorio */
+header nav a::after { 
+    content: ""; 
+    position: absolute; 
+    width: 0; 
+    height: 0.38vh; 
+    bottom: 0; 
+    left: 50%; 
+    background-color: #333333;
+    transition: all 0.3s ease; 
+} 
+
+header a:hover::after { 
+    width: 100%; 
+    left: 0vh; 
+}
+
+
+/* Estilos del Perfil del Administrador (aparte del header principal) */
+.perfil-administrador {
+    padding: 2vh 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.perfil-administrador:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    transition: filter 0.3s ease;
+}
+
+.perfil-administrador:hover .perfil-img {
+    filter: brightness(1.1);
+}
+
+.nombre-administrador {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333333;
+    transition: color 0.3s ease;
+}
+
+.perfil-administrador:hover .nombre-administrador {
+    color: white;
+}
+
+
+/* --- Responsive TABLETS (@media 1000px) --- */
+@media (max-width: 1000px) {
+    .perfil-administrador {
+        display: flex;
+        padding: 10px 20px;
+    }
+
+    .perfil-administrador .nombre-administrador {
+        color: #333333;
+    }
+}
+
+/* --- Responsive MOBILE (@media 768px) --- */
+@media (max-width: 768px) {
+    header {
+        padding: 0 20px;
+        justify-content: left;
+    }
+
+    /* Mostrar el icono de hamburguesa en móvil */
+    header .menu_hamburguesa {
+        display: flex;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: #333333;
+        z-index: 101;
+    }
+
+    /* Estilos del menú desplegable en móvil (oculto por defecto) */
+    header .menu-opciones {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 170px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 99;
+        display: none; /* OCULTAR POR DEFECTO */
+        flex-direction: column;
+        text-align: left;
+        padding: 2%;
+        background-color: #f96c7a;
+        gap: 1vh;
+    }
+
+    /* Mostrar el menú cuando tiene la clase 'active' (manejado por JS) */
+    header .menu-opciones.active {
+        display: flex; /* 💡 CORRECCIÓN: Usar 'flex' (o 'block') para MOSTRAR el menú */
+        /* Z-index alto para asegurar que el menú esté sobre otros elementos */
+        z-index: 100; 
+    }
+
+    .menu-opciones nav ul {
+        flex-direction: column;
+    }
+
+    .menu-opciones nav li {
+        width: 100%;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        padding-left: 4vh;
+    }
+}

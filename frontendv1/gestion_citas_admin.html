@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Citas - Admin</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Courier+Prime&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/estilo_header_admin.css">
+    <link rel="stylesheet" href="estilos/estilo_gestion_cita.css">
+    <script src="funciones/header_admin_fun.js"></script>
+    <script src="funciones/gestion_citas_calendario_fun.js"></script>
+    <script src="funciones/gestion_citas_fun.js"></script>
+    <script src="funciones/cerrar_sesion_fun.js"></script>
+</head>
+<header class="header">
+    <div class="header-left">
+        <div class="menu_hamburguesa">☰</div>
+        <div class="logo">
+            <img src="imagenes/logo_t.png" alt="Logo" class="logo-img">
+            <span>Gestión de Citas</span>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <nav class="menu-opciones">
+            <nav>
+                <ul>
+                    <li><a data-url="panel_administrador.html">Ventana Principal</a></li>
+                    <li><a id="cerrarSesion">Cerrar Sesión</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </div>
+</header>
+<body>
+    <div class="perfil-administrador">
+        <img src="imagenes/modelo-principal.jpg" alt="Foto del Administrador" class="perfil-img">
+        <span class="nombre-administrador">Administrador</span>
+    </div>
+    <main class="gestion-container">
+            <div class="filtros-top">
+                <button class="btn btn-primario btn-filtro-toggle" id="deshacerAccion">
+                    <i data-lucide="rotate-ccw" class="lucide-icon"></i>
+                    <span>&nbsp;Deshacer Acción</span>
+                </button>
+
+                <button class="btn btn-primario btn-filtro-toggle" id="Guardar">
+                    <i data-lucide="save" class="lucide-icon"></i>
+                    <span>&nbsp;Guardar Cambios</span>
+                </button>
+            </div>
+
+            <section id="filtroPanel" class="filtro-panel">
+                <div class="filtro-grid">
+                    <div class="filtro-grupo">
+                        <label for="buscarNombre">Buscar por nombre</label>
+                        <input type="text" id="buscarNombre" placeholder="Ej: Ana García..." autocomplete="off">
+                    </div>
+                    <div class="filtro-grupo">
+                        <label for="selectEstado">Buscar por Estado</label>
+                        <select id="selectEstado">
+                            <option value="">Todos los estados</option> 
+                            <option value="pendiente">Pendiente</option> 
+                            <option value="confirmada">Confirmada</option>
+                            <option value="completada">Completada</option> 
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="filtro-grupo">
+                        <label for="calendarioPicker">Buscar por Fecha</label>
+                        <div id="calendarioPicker" class="calendario-custom-wrapper">
+                            <input type="text" id="fechaSeleccionada" placeholder="Selecciona una fecha" readonly class="cal-select-input">
+
+                            <div class="calendario-dropdown-panel">
+                                <div class="calendario-header">
+                                    <button class="cal-nav" id="calPrev">‹</button>
+                                    <div class="cal-selectores">
+                                        <div class="mes-dropdown-wrapper">
+                                            <div class="cal-select" id="mesSelect">Noviembre</div>
+                                            <ul class="mes-select-menu"></ul>
+                                        </div>
+                                        <div class="anio-dropdown-wrapper">
+                                            <div class="cal-select" id="anioSelect">2025</div>
+                                            <ul class="anio-select-menu"></ul>
+                                        </div>
+                                    </div>
+                                    <button class="cal-nav" id="calNext">›</button>
+                                </div>
+                                <div class="calendario-grid-header">
+                                    <div>L</div>
+                                    <div>M</div>
+                                    <div>W</div>
+                                    <div>J</div>
+                                    <div>V</div>
+                                    <div>S</div>
+                                    <div>D</div>
+                                </div>
+                                <div class="calendario-grid-dias" id="calendarioDias">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filtro-acciones">
+                    <button class="btn btn-primario" id="limpiarFiltros">
+                        <i data-lucide="x-circle" class="lucide-icon"></i>
+                        <span>Limpiar Filtros</span>
+                    </button>
+                    <button class="btn btn-primario" id="aplicar-filtros-btn">
+                        <i data-lucide="check" class="lucide-icon"></i>
+                        <span>Aplicar Filtros</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="bulk-actions">
+                <label class="checkbox-label" for="selectAll">
+                    <input type="checkbox" id="selectAll">
+                    Seleccionar Todo
+                </label>
+                <button id="bulkCancel" class="btn btn-primario" disabled>
+                    Cancelar Seleccionadas
+                </button>
+            </section>
+
+            <section class="lista-citas">
+                <article class="cita-card">
+                   
+                </article>
+            </section>
+    </main>
+    <script> lucide.createIcons(); </script>
+</body>
+</html>
